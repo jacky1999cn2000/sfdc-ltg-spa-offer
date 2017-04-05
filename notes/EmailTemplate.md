@@ -11,6 +11,6 @@
 
 * Create Letterhead and HTML Email Template
   * [How to Create a Letterhead and an Email Template](https://www.youtube.com/watch?v=COgz9cDtjtc)
-  * ![email template 1.gif](/screenshots/inheritance/emailtemplate1.gif)
-  * ![email template 2.gif](/screenshots/inheritance/emailtemplate2.gif)
+  * ![email template 1.gif](/screenshots/inheritance/emailtemplate1.png)
+  * ![email template 2.gif](/screenshots/inheritance/emailtemplate2.png)
   * [recordit](http://recordit.co/suaaUwk9OA)

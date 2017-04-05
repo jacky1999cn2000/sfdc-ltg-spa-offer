@@ -11,7 +11,7 @@
 
 * **setup**
   * objects
-  ![object.png](/screenshots/object.png)
+  ![objects.png](/screenshots/objects.png)
   * app & tabs
     * Recruitment App (lightning app)
       * Positions tab

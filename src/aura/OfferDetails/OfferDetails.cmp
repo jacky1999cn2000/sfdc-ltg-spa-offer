@@ -1,0 +1,19 @@
+<aura:component access="public" controller="OfferApexController">
+
+    <div>
+        <br/>
+        <lightning:input type="number" name="AnnualSalary" label="Annual Salary" formatter="currency" aura:id="salary" min="20000" max="500000" step="5000" placeholder="Example:75,000"/>
+
+        <br/>
+        <lightning:input type="number" name="AnnualBonus" label="Annual Bonus" formatter="currency" aura:id="bonus" min="20000" max="150000" step="5000" placeholder="Example:15,000"/>
+
+        <br/>
+        <lightning:select name="OfferTemplate" label="Select an Offer Template" aura:id="template">
+            <option value="">choose one...</option>
+            <option value="1">one</option>
+            <option value="2">two</option>
+        </lightning:select>
+
+        <br/>
+    </div>
+</aura:component>

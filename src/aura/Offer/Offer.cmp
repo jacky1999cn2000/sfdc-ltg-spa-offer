@@ -1,0 +1,77 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="public" controller="OfferApexController">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="c-container">
+        <lightning:layout horizontalAlign="space">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <h3 class="slds-section-title--divider">Send Offer</h3>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <!-- Progress Bar -->
+                <div class="slds-grid">
+                    <div class="slds-tabs--path" role="application">
+                        <ul class="slds-tabs--path__nav" role="tablist">
+                            <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-91" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                        <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
+                                        <span class="slds-assistive-text">Details</span>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Details</span>
+                                </a>
+                            </li>
+                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-92" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                        <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
+                                        <span class="slds-assistive-text">Edit</span>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Edit</span>
+                                </a>
+                            </li>
+                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-94" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                        <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
+                                        <span class="slds-assistive-text">Preview</span>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Preview</span>
+                                </a>
+                            </li>
+                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-95" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                        <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
+                                        <span class="slds-assistive-text">Result</span>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Result</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+    <div aura:id="detailsDiv">
+        <c:OfferDetails/>
+    </div>
+
+    <div aura:id="templateDiv">
+        template
+        <!-- <c:OfferDetails /> -->
+    </div>
+
+    <div aura:id="previewDiv">
+        preview
+        <!-- <c:OfferDetails /> -->
+    </div>
+
+    <div aura:id="confirmDiv">
+        confirm
+        <!-- <c:OfferDetails /> -->
+    </div>
+
+</aura:component>

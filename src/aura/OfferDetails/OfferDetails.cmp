@@ -1,4 +1,8 @@
-<aura:component access="public" controller="OfferApexController">
+<aura:component extends="c:PromiseLtgCmp" access="public" controller="OfferApexController">
+
+    <aura:attribute name="emailTemplates" type="EmailTemplate[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <div>
         <br/>
@@ -10,10 +14,13 @@
         <br/>
         <lightning:select name="OfferTemplate" label="Select an Offer Template" aura:id="template">
             <option value="">choose one...</option>
-            <option value="1">one</option>
-            <option value="2">two</option>
+
+            <aura:iteration items="{!v.emailTemplates}" var="template">
+                <option value="{!template.Id}">{!template.Name}</option>
+            </aura:iteration>
         </lightning:select>
 
         <br/>
+        <lightning:button variant="brand" label="Get Account Owner" onclick="{!c.gagagag}"/>
     </div>
 </aura:component>

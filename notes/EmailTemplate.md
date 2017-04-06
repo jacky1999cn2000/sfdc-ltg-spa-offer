@@ -13,4 +13,4 @@
   * [How to Create a Letterhead and an Email Template](https://www.youtube.com/watch?v=COgz9cDtjtc)
   * ![email template 1](/screenshots/emailtemplate1.png)
   * ![email template 2](/screenshots/emailtemplate2.png)
-  * [recordit](http://recordit.co/suaaUwk9OA)
+  * ![email template demo](/screenshots/emailtemplate.gif)

@@ -1,18 +1,24 @@
 <aura:component extends="c:PromiseLtgCmp" access="public" controller="OfferApexController">
 
+    <aura:attribute name="candidateId" type="Id"/>
     <aura:attribute name="emailTemplates" type="EmailTemplate[]"/>
+    <aura:attribute name="candidateRecord" type="Candidate__c"/>
+
+    <aura:attribute name="templateId" type="Id"/>
+    <aura:attribute name="salary" type="Decimal"/>
+    <aura:attribute name="bonus" type="Decimal"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <div>
         <br/>
-        <lightning:input type="number" name="AnnualSalary" label="Annual Salary" formatter="currency" aura:id="salary" min="20000" max="500000" step="5000" placeholder="Example:75,000"/>
+        <lightning:input type="number" name="AnnualSalary" label="Annual Salary" formatter="currency" min="20000" max="500000" step="5000" placeholder="Example:75,000" aura:id="field" value="{!v.salary}" required="true"/>
 
         <br/>
-        <lightning:input type="number" name="AnnualBonus" label="Annual Bonus" formatter="currency" aura:id="bonus" min="20000" max="150000" step="5000" placeholder="Example:15,000"/>
+        <lightning:input type="number" name="AnnualBonus" label="Annual Bonus" formatter="currency" min="20000" max="150000" step="5000" placeholder="Example:15,000" aura:id="field" value="{!v.bonus}" required="true"/>
 
         <br/>
-        <lightning:select name="OfferTemplate" label="Select an Offer Template" aura:id="template">
+        <lightning:select name="OfferTemplate" label="Select an Offer Template" aura:id="field" value="{!v.templateId}" required="true">
             <option value="">choose one...</option>
 
             <aura:iteration items="{!v.emailTemplates}" var="template">
@@ -21,6 +27,6 @@
         </lightning:select>
 
         <br/>
-        <lightning:button variant="brand" label="Get Account Owner" onclick="{!c.gagagag}"/>
+        <lightning:button aura:id="button" label="Next" onclick="{!c.handleNextClick}"/>
     </div>
 </aura:component>

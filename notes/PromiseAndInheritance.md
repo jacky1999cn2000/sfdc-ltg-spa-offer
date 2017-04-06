@@ -3,6 +3,11 @@
 * Refer to this project for basic usages of Promises & Inheritance in Lightning Component
   * [sfdc-ltg-promise-inheritance](https://github.com/jacky1999cn2000/sfdc-ltg-promise-inheritance)
 
+* Based on the project above, we can upload AuraPromise.js to Static Resource, and use promise to handle async calls such as server method
+  * however, it may happen that during init() method, AuraPromise Static Resource was not loaded yet, so
+(window.)AuraPromise is undefined...
+  * [ltng:require may have a way to deal with it but I haven't tried](http://salesforce.stackexchange.com/questions/106495/initializing-javascript-plugin-after-loading-data-in-lightning-component)
+  * Or we can use another way...
 
 * Since ES6-Promise is an object under Window object (which means we have direct access to it), so we could implement the same logic of AuraPromise.js in a component's controller
   * ![window object](/screenshots/windowobject.png)

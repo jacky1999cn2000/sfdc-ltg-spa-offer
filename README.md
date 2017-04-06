@@ -15,3 +15,4 @@
 * [SETUP](./notes/Setup.md)
 * [Email Template](./notes/EmailTemplate.md)
 * [Promise And Inheritance](./notes/PromiseAndInheritance.md)
+* [Lightning Component](./notes/LightningComponent.md)

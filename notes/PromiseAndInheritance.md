@@ -7,14 +7,14 @@
 * Since ES6-Promise is an object under Window object (which means we have direct access to it), so we could implement the same logic of AuraPromise.js in a component's controller
   * ![window object](/screenshots/windowobject.png)
 
-* Create a parent component and define Promise methods in its controller, and create child components that extend it
+* Create a parent component and define Promise methods in its helper.js, and create child components that extend it
   * parent component - `PromiseLtgCmp`
     * PromiseLtgCmp.cmp*
     ```
       <aura:component extensible="true">{!v.body}</aura:component>
     ```
 
-    * PromiseLtgCmpController.js*
+    * PromiseLtgCmpHelper.js*
     ```
       ({
           _getErrorDescription: function(errors) {

@@ -24,6 +24,10 @@
 		<members>Offer</members>
 		<members>OfferDetails</members>
 		<members>PromiseLtgCmp</members>
+		<members>OfferSPANotifierEvent</members>
+		<members>OfferTemplate</members>
+		<members>OfferPreview</members>
+		<members>OfferConfirm</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>39.0</version>

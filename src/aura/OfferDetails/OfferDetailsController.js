@@ -71,14 +71,23 @@
             console.log('bonus ', bonus);
             console.log('templateId ', templateId);
 
+            var cmpEvent = component.getEvent('bubblingEvent');
+            cmpEvent.setParams({'ComponentAction': 'OfferDetails_Next'});
+            cmpEvent.fire();
+
             // create offer record
-            var action = component.get('c.createOffer');
-            action.setParams({'candidateId': component.get('v.candidateRecord').Id, 'positionId': component.get('v.candidateRecord').Position__c, 'salary': component.get('v.salary'), 'bonus': component.get('v.bonus')});
-            helper._serverSideCall(action, component).then(function(Id) {
-                console.log('offer Id ', Id);
-            }).catch(function(error) {
-                console.log('Error: ' + error);
-            });
+            // var action = component.get('c.createOffer');
+            // action.setParams({'candidateId': component.get('v.candidateRecord').Id, 'positionId': component.get('v.candidateRecord').Position__c, 'salary': component.get('v.salary'), 'bonus': component.get('v.bonus')});
+            // helper._serverSideCall(action, component).then(function(Id) {
+            //     console.log('offer Id ', Id);
+            //
+            //     var cmpEvent = component.getEvent('bubblingEvent');
+            //     cmpEvent.setParams({'ComponentAction': 'OfferDetails_Next'});
+            //     cmpEvent.fire();
+            //
+            // }).catch(function(error) {
+            //     console.log('Error: ' + error);
+            // });
 
         }
 

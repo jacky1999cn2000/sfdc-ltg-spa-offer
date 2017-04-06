@@ -10,6 +10,11 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+    <!-- <aura:registerEvent name="appEvent" type="c:DataEvent"/> -->
+
+    <!-- A COMPONENT event(best for child-parent components communication), used for progress bar update -->
+    <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
+
     <div>
         <br/>
         <lightning:input type="number" name="AnnualSalary" label="Annual Salary" formatter="currency" min="20000" max="500000" step="5000" placeholder="Example:75,000" aura:id="field" value="{!v.salary}" required="true"/>

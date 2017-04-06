@@ -1,6 +1,7 @@
 <aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="public" controller="OfferApexController">
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="bubblingEvent" event="c:OfferSPANotifierEvent" action="{!c.handleBubbling}"/>
 
     <div class="c-container">
         <lightning:layout horizontalAlign="space">
@@ -12,7 +13,7 @@
                 <div class="slds-grid">
                     <div class="slds-tabs--path" role="application">
                         <ul class="slds-tabs--path__nav" role="tablist">
-                            <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                            <li aura:id="detailsIndicator" class="slds-tabs--path__item slds-is-current" role="presentation">
                                 <a class="slds-tabs--path__link" id="tabs-path-91" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
                                     <span class="slds-tabs--path__stage">
                                         <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
@@ -21,7 +22,7 @@
                                     <span class="slds-tabs--path__title">Details</span>
                                 </a>
                             </li>
-                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                            <li aura:id="templateIndicator" class="slds-tabs--path__item slds-is-incomplete" role="presentation">
                                 <a class="slds-tabs--path__link" id="tabs-path-92" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
                                     <span class="slds-tabs--path__stage">
                                         <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
@@ -30,7 +31,7 @@
                                     <span class="slds-tabs--path__title">Edit</span>
                                 </a>
                             </li>
-                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                            <li aura:id="previewIndicator" class="slds-tabs--path__item slds-is-incomplete" role="presentation">
                                 <a class="slds-tabs--path__link" id="tabs-path-94" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
                                     <span class="slds-tabs--path__stage">
                                         <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
@@ -39,7 +40,7 @@
                                     <span class="slds-tabs--path__title">Preview</span>
                                 </a>
                             </li>
-                            <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                            <li aura:id="confirmIndicator" class="slds-tabs--path__item slds-is-incomplete" role="presentation">
                                 <a class="slds-tabs--path__link" id="tabs-path-95" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
                                     <span class="slds-tabs--path__stage">
                                         <lightning:icon iconName="utility:check" size="x-small" alternativeText="Indicates approval"/>
@@ -60,18 +61,15 @@
     </div>
 
     <div aura:id="templateDiv">
-        template
-        <!-- <c:OfferDetails /> -->
+        <c:OfferTemplate/>
     </div>
 
     <div aura:id="previewDiv">
-        preview
-        <!-- <c:OfferDetails /> -->
+        <c:OfferPreview/>
     </div>
 
     <div aura:id="confirmDiv">
-        confirm
-        <!-- <c:OfferDetails /> -->
+        <c:OfferConfirm/>
     </div>
 
 </aura:component>

@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
+
+    Preview
+
+    <lightning:button aura:id="button" label="Back" onclick="{!c.handleBackClick}"/>
+    <lightning:button aura:id="button" label="Next" onclick="{!c.handleNextClick}"/>
+</aura:component>

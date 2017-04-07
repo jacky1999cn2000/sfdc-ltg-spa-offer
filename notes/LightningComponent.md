@@ -3,6 +3,22 @@
 * Lightning Base Component
   * [lightning:input](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_input.htm)
   * [lightning:select](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_select.htm)
+  * Since lightning base component will eventually be rendered as html (with SLDS styling), so we can provide custom css based on the eventually rendered html, see this example below
+  ```
+  /* OfferTemplate.cmp */
+  <lightning:textarea name="Body" label="Your Name" value="{!v.templateText}" messageWhenValueMissing="This field is required." required="true"/>
+
+  /* rendered HTML */
+  <div class="slds-form-element__control" data-aura-rendered-by="219:793;a">
+    <textarea class="slds-textarea" id="211:793;a" data-aura-rendered-by="220:793;a" name="Body" required="" aria-describedby="211:793;a-desc"></textarea>
+  </div>
+
+  /* OfferTemplate.css */
+  .THIS .slds-form-element__control>textarea {
+      height: 126px;
+  }
+  ```
+  * ![css](/screenshots/css.png)
 
 * aura attributes
   * [Supported aura:attribute Types](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_aura_attribute.htm)
@@ -51,5 +67,6 @@
       console.log('Error: ' + error);
   });
   ```
+  * In the actual code, I encapsulated event firing logic in parent's helper
   * [Documentation](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_mod_ext_js.htm)
   * [$A.get("application-event") is undefined](http://salesforce.stackexchange.com/questions/158422/a-get-for-application-event-is-undefined-or-can-only-fire-once)

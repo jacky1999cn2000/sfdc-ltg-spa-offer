@@ -16,6 +16,7 @@
   /* OfferTemplate.css */
   .THIS .slds-form-element__control>textarea {
       height: 126px;
+      background-color: red;
   }
   ```
   * ![css](/screenshots/css.png)

@@ -1,2 +1,3 @@
-.THIS {
+.THIS .slds-form-element__control>textarea {
+    height: 126px;
 }

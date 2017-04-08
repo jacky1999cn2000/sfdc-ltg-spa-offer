@@ -14,3 +14,7 @@
   * ![email template 1](/screenshots/emailtemplate1.png)
   * ![email template 2](/screenshots/emailtemplate2.png)
   * ![email template demo](/screenshots/emailtemplate.gif)
+
+* Using apex to merge fields in email template
+  * [Messaging.renderStoredEmailTemplate](http://salesforce.stackexchange.com/questions/13/using-apex-to-assemble-html-letterhead-emails/8745#8745)
+  * [Documentation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_email_outbound_messaging.htm)

@@ -59,7 +59,6 @@
                 // fire application-level appEvent (handled by OfferDetails, OfferTemplate, OfferPreview, OfferConfirm LCs to transfer data between each other)
                 helper._fireAppEvent({
                     LCWhoFired: 'OfferDetails.cmp',
-                    LCAction: 'Next',
                     offerId: component.get('v.offerId'),
                     templateText: component.get('v.templateText'),
                     templateSubject: component.get('v.templateSubject'),
@@ -73,17 +72,5 @@
         }
 
         console.log("OfferDetails Controller.handleNextClick: exit");
-    },
-
-    handleAppEvent: function(component, event, helper) {
-        console.log("OfferDetails Controller.handleAppEvent: entered");
-
-        var params = event.getParams();
-
-        if (params.LCWhoFired == 'OfferTemplate.cmp' && params.LCAction == 'Back') {
-            console.log('respond to this event: OfferTemplate.cmp - Back');
-        }
-
-        console.log("OfferDetails Controller.handleAppEvent: exit");
     }
 })

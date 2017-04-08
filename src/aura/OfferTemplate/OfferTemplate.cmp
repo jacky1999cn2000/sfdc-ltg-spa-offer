@@ -9,6 +9,8 @@
 
     <!-- A COMPONENT event(best for child-parent components communication), used for progress bar navigation -->
     <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
+    <!-- A APPLICATION event(best for component-component communication), used for transfer data between components -->
+    <aura:registerEvent name="appEvent" type="c:OfferDataEvent"/>
 
     <div>
         <br/>

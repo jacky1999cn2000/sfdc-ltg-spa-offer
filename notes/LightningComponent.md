@@ -25,7 +25,18 @@
   * [Supported aura:attribute Types](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_aura_attribute.htm)
 
 * Component Event vs Application Event
-  *
+  * Please pay attention these 2 events required different syntax to fire
+  ```
+  /* component-level event */
+  var cmpEvent = component.getEvent('bubblingEvent');
+  cmpEvent.setParams({...});
+  cmpEvent.fire();
+
+  /* application-level event */
+  var appEvent = $A.get("e.c:OfferDataEvent");
+  appEvent.setParams({...});
+  appEvent.fire();
+  ```
 
 * Modifying Components Outside the Framework Lifecycle
   * This is a tricky problem - based on the code below, in the `then()` block after we call `_serverSideCall` (a method defined in parent component's helper to return a promise for async apex server call), it worked fine when we tried to create/fire component-level event, but it would throw an error (appEvent is undefined) when we tried to create/fire a application-level event.

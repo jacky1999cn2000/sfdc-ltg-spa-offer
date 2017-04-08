@@ -14,7 +14,7 @@
         console.log("Offer Controller.doInit: exit");
     },
 
-    handleBubbling: function(component, event) {
+    handleBubblingEvent: function(component, event) {
         console.log("Offer Controller.handleBubbling: entered");
 
         console.log('Event Name ', event.getName());

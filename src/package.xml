@@ -28,6 +28,7 @@
 		<members>OfferTemplate</members>
 		<members>OfferPreview</members>
 		<members>OfferConfirm</members>
+		<members>OfferDataEvent</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>39.0</version>

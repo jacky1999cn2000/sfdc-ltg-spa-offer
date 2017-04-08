@@ -8,6 +8,7 @@
             return "Unknown error";
         }
     },
+
     _serverSideCall: function(action, component) {
         return new Promise(function(resolve, reject) {
             action.setCallback(this, function(response) {
@@ -20,5 +21,24 @@
             });
             $A.enqueueAction(action);
         });
+    },
+
+    _fireBubblingEvent: function(actionName, component) {
+        var cmpEvent = component.getEvent('bubblingEvent');
+        cmpEvent.setParams({'ComponentAction': actionName});
+        cmpEvent.fire();
+    },
+
+    _fireAppEvent: function(params, component) {
+        var appEvent = $A.get("e.c:OfferDataEvent");
+        appEvent.setParams({
+            'LCWhoFired': params.LCWhoFired,
+            'LCAction': params.LCAction,
+            'offerId': params.offerId,
+            'templateText': params.templateText,
+            'templateSubject': params.templateSubject,
+            'email': params.email
+        });
+        appEvent.fire();
     }
 })

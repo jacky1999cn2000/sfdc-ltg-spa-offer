@@ -1,19 +1,29 @@
 <aura:component extends="c:PromiseLtgCmp" access="public" controller="OfferApexController">
 
     <aura:attribute name="candidateId" type="Id"/>
-    <aura:attribute name="emailTemplates" type="EmailTemplate[]"/>
-    <aura:attribute name="candidateRecord" type="Candidate__c"/>
-
+    <aura:attribute name="positionId" type="Id"/>
+    <aura:attribute name="offerId" type="Id"/>
     <aura:attribute name="templateId" type="Id"/>
+
+    <aura:attribute name="emailTemplates" type="EmailTemplate[]"/>
+
+    <aura:attribute name="candidateName" type="String"/>
+
+    <aura:attribute name="templateHTML" type="String"/>
+    <aura:attribute name="templateText" type="String"/>
+    <aura:attribute name="templateSubject" type="String"/>
+
+    <aura:attribute name="email" type="String"/>
     <aura:attribute name="salary" type="Decimal"/>
     <aura:attribute name="bonus" type="Decimal"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:OfferDataEvent" action="{!c.handleAppEvent}"/>
 
-    <!-- <aura:registerEvent name="appEvent" type="c:DataEvent"/> -->
-
-    <!-- A COMPONENT event(best for child-parent components communication), used for progress bar update -->
+    <!-- A COMPONENT event(best for child-parent components communication), used for progress bar navigation -->
     <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
+    <!-- A APPLICATION event(best for component-component communication), used for transfer data between components -->
+    <aura:registerEvent name="appEvent" type="c:OfferDataEvent"/>
 
     <div>
         <br/>

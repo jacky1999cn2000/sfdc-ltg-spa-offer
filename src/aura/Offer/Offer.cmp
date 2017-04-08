@@ -1,7 +1,7 @@
 <aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="public" controller="OfferApexController">
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="bubblingEvent" event="c:OfferSPANotifierEvent" action="{!c.handleBubbling}"/>
+    <aura:handler name="bubblingEvent" event="c:OfferSPANotifierEvent" action="{!c.handleBubblingEvent}"/>
 
     <div class="c-container">
         <lightning:layout horizontalAlign="space">

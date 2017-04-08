@@ -1,9 +1,25 @@
-<aura:component >
+<aura:component extends="c:PromiseLtgCmp" access="public" controller="OfferApexController">
 
+    <aura:attribute name="offerId" type="String"/>
+    <aura:attribute name="templateText" type="String"/>
+    <aura:attribute name="templateSubject" type="String"/>
+    <aura:attribute name="email" type="String"/>
+
+    <aura:handler event="c:OfferDataEvent" action="{!c.handleAppEvent}"/>
+
+    <!-- A COMPONENT event(best for child-parent components communication), used for progress bar navigation -->
     <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
 
-    Template
+    <div>
+        <br/>
+        <lightning:input name="Subject" label="Subject" value="{!v.templateSubject}" aura:id="field" required="true"/>
 
-    <lightning:button aura:id="button" label="Back" onclick="{!c.handleBackClick}"/>
-    <lightning:button aura:id="button" label="Next" onclick="{!c.handleNextClick}"/>
+        <br/>
+        <lightning:textarea name="Body" label="Your Name" value="{!v.templateText}" messageWhenValueMissing="This field is required." aura:id="field" required="true"/>
+
+        <br/>
+        <lightning:button aura:id="button" label="Back" onclick="{!c.handleBackClick}"/>
+        <lightning:button aura:id="button" label="Next" onclick="{!c.handleNextClick}"/>
+    </div>
+
 </aura:component>

@@ -16,6 +16,16 @@
 * [Email Template](./notes/EmailTemplate.md)
 * [Promise And Inheritance](./notes/PromiseAndInheritance.md)
 * [Lightning Component](./notes/LightningComponent.md)
+* Demo
+  * quick demo
+  ![demo1.gif](/screenshots/demo1.gif)
+
+  * demo with validation and navigation
+  ![demo2.gif](/screenshots/demo2.gif)
+
+  * emails received
+  ![email1.png](/screenshots/email1.png)
+  ![email2.png](/screenshots/email2.png)
 
 ===================
 

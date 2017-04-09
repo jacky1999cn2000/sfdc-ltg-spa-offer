@@ -1,9 +1,11 @@
 # Lightning Component
 
-* Lightning Base Component
+* **Lightning Base Component**
   * [lightning:input](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_input.htm)
   * [lightning:select](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_select.htm)
+
   * Since lightning base component will eventually be rendered as html (with SLDS styling), so we can provide custom css based on the eventually rendered html, see this example below
+
   ```
   /* OfferTemplate.cmp */
   <lightning:textarea name="Body" label="Your Name" value="{!v.templateText}" messageWhenValueMissing="This field is required." required="true"/>
@@ -21,11 +23,12 @@
   ```
   * ![css](/screenshots/css.png)
 
-* aura attributes
+* **aura attributes**
   * [Supported aura:attribute Types](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_aura_attribute.htm)
 
-* Dynamically Creating Components
+* **Dynamically Creating Components**
   * [Documentation](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_dynamic_cmp_async.htm?search_text=dynamically)
+
   * Promisify it
   ```
   /* in parent component's helper */
@@ -69,7 +72,8 @@
   })
   ```
 
-* Component Event vs Application Event
+* **Component Event vs Application Event**
+
   * Please pay attention these 2 events required different syntax to fire
   ```
   /* component-level event */
@@ -83,7 +87,8 @@
   appEvent.fire();
   ```
 
-* Modifying Components Outside the Framework Lifecycle
+* **Modifying Components Outside the Framework Lifecycle**
+
   * This is a tricky problem - based on the code below, in the `then()` block after we call `_serverSideCall` (a method defined in parent component's helper to return a promise for async apex server call), it worked fine when we tried to create/fire component-level event, but it would throw an error (appEvent is undefined) when we tried to create/fire a application-level event.
   ```
   helper._serverSideCall(action, component).then(function(offerId) {

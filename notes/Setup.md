@@ -1,8 +1,8 @@
 # SETUP
 
-* objects
+* **objects**
   * ![objects.png](/screenshots/objects.png)
-* app & tabs
+* **app & tabs**
   * Recruitment App (lightning app)
     * Positions tab
     * Offers tab

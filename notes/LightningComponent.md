@@ -24,6 +24,51 @@
 * aura attributes
   * [Supported aura:attribute Types](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_aura_attribute.htm)
 
+* Dynamically Creating Components
+  * [Documentation](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_dynamic_cmp_async.htm?search_text=dynamically)
+  * Promisify it
+  ```
+  /* in parent component's helper */
+
+  _createComponent: function(icon, params) {
+      return new Promise(function(resolve, reject) {
+          $A.createComponent(icon, params, function(newIcon, status, errorMessage) {
+              if (status == 'SUCCESS') {
+                  resolve({status: status, newIcon: newIcon, errorMessage: null});
+              } else if (status == 'INCOMPLETE') {
+                  reject({status: status, newIcon: null, errorMessage: 'No response from server or client is offline'});
+              } else if (status == 'ERROR') {
+                  reject({status: status, newIcon: null, errorMessage: errorMessage});
+              }
+          });
+      });
+  },
+
+  /* in child component's controller */
+
+  helper._serverSideCall(action, component).then(function(sendResult) {
+
+      ...
+      // handle previous promise returned value "sendResult"
+      ...
+
+      // create component (via promise)
+      return helper._createComponent("lightning:icon", {
+          "aura:id": "resultIcon",
+          "iconName": iconToShow,
+          "size": "medium"
+      });
+  }).then(function(result) {
+      if (result.status == 'SUCCESS') {
+          var body = component.get('v.body');
+          body.push(newIcon);
+          component.set('v.body', body);
+      } else {
+          console.log('error ', result.errorMessage);
+      }
+  })
+  ```
+
 * Component Event vs Application Event
   * Please pay attention these 2 events required different syntax to fire
   ```

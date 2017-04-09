@@ -23,6 +23,20 @@
         });
     },
 
+    _createComponent: function(icon, params) {
+        return new Promise(function(resolve, reject) {
+            $A.createComponent(icon, params, function(newIcon, status, errorMessage) {
+                if (status == 'SUCCESS') {
+                    resolve({status: status, newIcon: newIcon, errorMessage: null});
+                } else if (status == 'INCOMPLETE') {
+                    reject({status: status, newIcon: null, errorMessage: 'No response from server or client is offline'});
+                } else if (status == 'ERROR') {
+                    reject({status: status, newIcon: null, errorMessage: errorMessage});
+                }
+            });
+        });
+    },
+
     _fireBubblingEvent: function(actionName, component) {
         var cmpEvent = component.getEvent('bubblingEvent');
         cmpEvent.setParams({'ComponentAction': actionName});

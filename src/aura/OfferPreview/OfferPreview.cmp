@@ -21,7 +21,7 @@
 
         <br/>
         <lightning:button aura:id="button" label="Back" onclick="{!c.handleBackClick}"/>
-        <lightning:button aura:id="button" label="Next" onclick="{!c.handleNextClick}"/>
+        <lightning:button aura:id="button" label="Send Offer" onclick="{!c.handleNextClick}"/>
     </div>
 
 </aura:component>

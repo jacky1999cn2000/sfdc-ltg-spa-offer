@@ -14,13 +14,13 @@
             helper._fireBubblingEvent('OfferPreview_Next', component);
 
             // fire application-level appEvent (handled by OfferDetails, OfferTemplate, OfferPreview, OfferConfirm LCs to transfer data between each other)
-            // helper._fireAppEvent({
-            //     LCWhoFired: 'OfferTemplate.cmp',
-            //     offerId: component.get('v.offerId'),
-            //     templateText: component.get('v.templateText'),
-            //     templateSubject: component.get('v.templateSubject'),
-            //     email: component.get('v.email')
-            // }, component);
+            helper._fireAppEvent({
+                LCWhoFired: 'OfferPreview.cmp',
+                offerId: component.get('v.offerId'),
+                templateText: component.get('v.templateText'),
+                templateSubject: component.get('v.templateSubject'),
+                email: component.get('v.email')
+            }, component);
         }
     },
 

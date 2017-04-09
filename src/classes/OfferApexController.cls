@@ -18,10 +18,6 @@ public class OfferApexController {
 
   @AuraEnabled
   public static Id upsertOffer(Id offerId, Id candidateId, Decimal salary, Decimal bonus) {
-    // set Filled__c field in Position__c object to TRUE
-    // Position__c position = [SELECT Id, Filled__c FROM Position__c WHERE Id =: positionId];
-    // position.Filled__c = true;
-    // update position;
 
     Offer__c offer;
 
@@ -51,6 +47,37 @@ public class OfferApexController {
     returnList.add(email.getHTMLBody());
     returnList.add(email.getSubject());
     return returnList;
+  }
+
+  public class SendResult {
+    @AuraEnabled
+    public Boolean success;
+    @AuraEnabled
+    public String message;
+  }
+
+  @AuraEnabled
+  public static SendResult sendEmail(String email, String subject, String content) {
+    SendResult sendResult = new SendResult();
+    // Messaging.reserveSingleEmailCapacity(2);
+    Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+    String[] toAddresses = new String[] {email};
+    mail.setToAddresses(toAddresses);
+    mail.setReplyTo('hr@jzsolution.com');
+    mail.setSenderDisplayName('JZ Solution HR');
+    mail.setSubject(subject);
+    mail.setUseSignature(false);
+    mail.setPlainTextBody(content);
+    try {
+      Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+    } catch(Exception ex){
+      sendResult.success = false;
+      sendResult.message = 'Your offer letter was not sent successfully by email to ' + email + ', and the error was ' + ex.getMessage();
+      return sendResult;
+    }
+    sendResult.success = true;
+    sendResult.message = 'Your offer letter was sent successfully by email to ' + email;
+    return sendResult;
   }
 
 }

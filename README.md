@@ -16,3 +16,10 @@
 * [Email Template](./notes/EmailTemplate.md)
 * [Promise And Inheritance](./notes/PromiseAndInheritance.md)
 * [Lightning Component](./notes/LightningComponent.md)
+
+===================
+
+* Architect Academy
+* [Ebook Links](https://www.inkling.com/store/salesforce-university/)
+* username: liang.zhao83@gmail.com
+* password: ba76acaH

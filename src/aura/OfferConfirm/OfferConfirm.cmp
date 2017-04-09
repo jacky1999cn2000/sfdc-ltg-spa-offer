@@ -1,5 +1,35 @@
-<aura:component >
+<aura:component extends="c:PromiseLtgCmp" access="public" controller="OfferApexController">
 
-    Confirm
+    <aura:attribute name="offerId" type="String"/>
+    <aura:attribute name="templateText" type="String"/>
+    <aura:attribute name="templateSubject" type="String"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="result" type="Object"/>
 
+    <aura:handler event="c:OfferDataEvent" action="{!c.handleAppEvent}"/>
+
+    <!-- A COMPONENT event(best for child-parent components communication), used for progress bar navigation -->
+    <aura:registerEvent name="bubblingEvent" type="c:OfferSPANotifierEvent"/>
+
+    <div class="c-container">
+        <lightning:layout horizontalAlign="center" verticalAlign="center">
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="2">
+                {!v.body}
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-medium" size="4">
+                {!v.result.message}
+            </lightning:layoutItem>
+        </lightning:layout>
+
+        <br/>
+        <br/>
+
+        <lightning:layout horizontalAlign="space" verticalAlign="center">
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="3">
+                <lightning:buttonGroup>
+                    <lightning:button label="Open Offer" onclick="{!c.navigateToRecord}"/>
+                </lightning:buttonGroup>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
 </aura:component>

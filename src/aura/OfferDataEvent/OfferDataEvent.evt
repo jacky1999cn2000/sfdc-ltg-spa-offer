@@ -3,12 +3,8 @@
     <aura:attribute name="LCWhoFired" type="String" access="global"/>
 
     <aura:attribute name="offerId" type="Id" access="global"/>
-
     <aura:attribute name="templateText" type="String" access="global"/>
     <aura:attribute name="templateSubject" type="String" access="global"/>
-
     <aura:attribute name="email" type="String" access="global"/>
-
-    <aura:attribute name="result" type="String" access="global"/>
 
 </aura:event>
